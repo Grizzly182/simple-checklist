@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\GithubController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/auth/github', [GithubController::class, 'redirectToGithub'])->name('auth.github');
+Route::get('/auth/github/callback', [GithubController::class, 'handleGithubCallback'])->name('auth.github.callback');
+
+Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
