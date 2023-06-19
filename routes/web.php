@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GithubController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\VkontakteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,5 +22,8 @@ Route::get('/', function () {
 
 Route::get('/auth/github', [GithubController::class, 'redirectToGithub'])->name('auth.github');
 Route::get('/auth/github/callback', [GithubController::class, 'handleGithubCallback'])->name('auth.github.callback');
+
+Route::get('/auth/vk', [VkontakteController::class, 'redirectToVk'])->name('auth.vk');
+Route::get('/auth/vk/callback', [VkontakteController::class, 'handleVkCallback'])->name('auth.vk.callback');
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');

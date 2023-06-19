@@ -33,7 +33,7 @@ return [
     'vkontakte' => [
         'client_id' => env('VK_CLIENT_ID'),
         'client_secret' => env('VK_CLIENT_SECRET'),
-        'redirect' => 'http://127.0.0.1:8000/auth/vkontakte/callback'
+        'redirect' => 'http://127.0.0.1:8000/auth/vk/callback'
     ],
 
     'github' => [
