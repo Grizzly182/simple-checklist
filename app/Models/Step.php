@@ -10,6 +10,12 @@ class Step extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'is_active',
+        'task_id'
+    ];
+
     public function task(): BelongsTo
     {
         return $this->belongsTo(Task::class, 'task_id', 'id');

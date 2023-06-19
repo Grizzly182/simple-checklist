@@ -11,6 +11,12 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'is_active',
+        'checklist_id'
+    ];
+
     public function checklist(): BelongsTo
     {
         return $this->belongsTo(Checklist::class, 'checklist_id', 'id');
