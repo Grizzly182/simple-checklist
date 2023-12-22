@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Домашняя страница сайта
 Route::get('/', function () {
     return view('home');
 });
 
+// Способоы авторизации
 Route::get('/auth/github', [GithubController::class, 'redirectToGithub'])->name('auth.github');
 Route::get('/auth/github/callback', [GithubController::class, 'handleGithubCallback'])->name('auth.github.callback');
 
@@ -27,3 +29,6 @@ Route::get('/auth/vk', [VkontakteController::class, 'redirectToVk'])->name('auth
 Route::get('/auth/vk/callback', [VkontakteController::class, 'handleVkCallback'])->name('auth.vk.callback');
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
+
+
+Route::get('/checklist/{id}', [ChecklistsController::class, 'index'])->name('checklist.index');

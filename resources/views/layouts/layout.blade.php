@@ -48,13 +48,13 @@
                         <ul class="navbar-nav">
                             <li class="nav-item me-2">
                                 <a class="btn btn-light justify-content-center d-flex" role="button"
-                                    href="{{ route('auth.github') }}"><img class=" me-1" width="25"
+                                    href="{{ route('auth.github') }}"><img class="me-1" alt="GitHub" width="25"
                                         src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub">Войти
                                     через GitHub</a>
                             </li>
                             <li class="nav-item">
                                 <a class="btn btn-primary justify-content-center d-flex" role="button"
-                                    href="{{ route('auth.github') }}"><img class="me-1" width="25"
+                                    href="{{ route('auth.vk') }}"><img class="me-1" alt="Vk" width="25"
                                         src="https://kataliti.ru/wp-content/uploads/2021/01/vk.png" alt="VK">Войти
                                     через VK</a>
                             </li>
@@ -65,9 +65,11 @@
         </div>
     </nav>
 
-    <div class="container">
-        @yield('content')
-    </div>
+    @guest
+        <div class="container h-100">
+            @yield('content')
+        </div>
+    @endguest
 </body>
 
 </html>
